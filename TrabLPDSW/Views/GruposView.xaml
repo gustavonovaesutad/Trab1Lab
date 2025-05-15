@@ -1,0 +1,26 @@
+<UserControl x:Class="TrabLPDSW.Views.GruposView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:TrabLPDSW.ViewModels">
+    <UserControl.DataContext>
+        <vm:GruposViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="10">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBox Width="100" Margin="5" PlaceholderText="ID" Text="{Binding NovoGrupo.Id}" />
+                <TextBox Width="200" Margin="5" PlaceholderText="Nome" Text="{Binding NovoGrupo.Nome}" />
+                <Button Content="Criar Grupo" Command="{Binding AdicionarGrupoCommand}" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" ItemsSource="{Binding AlunosDisponiveis}" DisplayMemberPath="Nome"
+                          SelectedItem="{Binding AlunoSelecionado}" Margin="5"/>
+                <Button Content="Adicionar ao Grupo" Command="{Binding AdicionarAlunoAoGrupoCommand}" Margin="5"/>
+            </StackPanel>
+
+            <ListBox ItemsSource="{Binding NovoGrupo.Alunos}" DisplayMemberPath="Nome" Margin="5" />
+        </StackPanel>
+    </Grid>
+</UserControl>

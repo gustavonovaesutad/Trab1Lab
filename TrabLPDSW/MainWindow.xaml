@@ -1,0 +1,22 @@
+﻿<Window x:Class="YourApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:YourApp.Views"
+        Title="Gestão de Avaliações" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- SideBar -->
+        <StackPanel Grid.Column="0" Background="#2C3E50">
+            <Button Content="Perfil" Command="{Binding ShowPerfilCommand}" Style="{StaticResource SideBarButtonStyle}"/>
+            <Button Content="Pauta" Command="{Binding ShowPautaCommand}" Style="{StaticResource SideBarButtonStyle}"/>
+            <Button Content="Histograma" Command="{Binding ShowHistogramaCommand}" Style="{StaticResource SideBarButtonStyle}"/>
+        </StackPanel>
+
+        <!-- Content Area -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentView}"/>
+    </Grid>
+</Window>
